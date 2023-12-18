@@ -5,9 +5,14 @@ from func_public import construct_market_prices
 from func_cointegration import store_cointegration_results
 from func_entry_pairs import open_positions
 from func_exits_pairs import manage_trade_exits
+from func_messaging import send_message
 
+
+# MAIN FUNCTION
 if __name__ == "__main__":
     print("Hello bot")
+
+    send_message("Bot started")
 
     # Connect to client
     try:
@@ -47,7 +52,7 @@ if __name__ == "__main__":
             print("Error saving cointegrated pairs: ", e)
             exit(1)
 
-    while True:
+    while MANAGE_EXITS or PLACE_TRADES:
 
         # Place trades for opening positions
         if MANAGE_EXITS:
