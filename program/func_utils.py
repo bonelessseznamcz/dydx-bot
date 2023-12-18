@@ -60,3 +60,7 @@ def get_iso_times():
 
     # Return result
     return times_dict
+
+
+def get_accept_price(current_price, side):
+    return current_price * 1.05 if side == "BUY" else current_price * 0.95
